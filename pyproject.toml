@@ -1,0 +1,84 @@
+[build-system]
+requires = ["setuptools>=69", "wheel", "build"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "largest-remainder"
+version = "0.1.0"
+description = "Largest Remainder (Hamilton method) algorithm for rounding values while preserving the total."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+authors = [{ name = "Trustfull Engineering Team", email = "engineering@trustfull.com" }]
+keywords = ["largest remainder", "hamilton method", "rounding", "quota"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/fido-id/largest-remainder-py"
+Documentation = "https://github.com/fido-id/largest-remainder-py#readme"
+Changelog = "https://github.com/fido-id/largest-remainder-py/releases"
+Issues = "https://github.com/fido-id/largest-remainder-py/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"largest_remainder" = ["py.typed"]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.pytest.ini_options]
+addopts = "-q --cov=largest_remainder --cov-report=term-missing"
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py39"
+line-length = 100
+lint.select = ["E","F","I","B","UP","SIM","PT","C90"]
+lint.ignore = ["E203"]
+src = ["src"]
+
+[tool.mypy]
+python_version = "3.9"
+strict = true
+pretty = true
+warn_unused_ignores = true
+packages = ["largest_remainder"]
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+version = "0.1.0"
+tag_format = "v$version"
+update_changelog_on_bump = true
+
+[tool.semantic_release]
+version_source = "tag"
+version_toml = [
+  "pyproject.toml:project.version",
+  "pyproject.toml:tool.commitizen.version",
+]
+branch = "main"
+upload_to_pypi = true
+upload_to_release = true
+build_command = "python -m pip install --upgrade 'uv==0.9.*' 'build>=1.2' && uv run -m build"
+changelog_file = "CHANGELOG.md"
+commit_parser = "angular"
+
+[dependency-groups]
+dev = [
+  "pytest",
+  "pytest-cov",
+  "ruff",
+  "mypy",
+  "pre-commit",
+  "commitizen",
+  "build",
+  "twine",
+  "python-semantic-release",
+]
