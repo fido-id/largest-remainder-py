@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.1.0 (2025-10-21)
+
+### Features
+
+- Additional testing
+  ([`20dfad9`](https://github.com/fido-id/largest-remainder-py/commit/20dfad9f2daa18a867b36020f101495df50ce740))
+
+
 ## v0.0.0 (2025-10-21)
 
 ### Chores

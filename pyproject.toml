@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "largest-remainder"
-version = "0.0.0"
+version = "0.1.0"
 description = "Largest Remainder (Hamilton method) algorithm for rounding values while preserving the total."
 readme = "README.md"
 requires-python = ">=3.9"
@@ -53,7 +53,7 @@ packages = ["largest_remainder"]
 
 [tool.commitizen]
 name = "cz_conventional_commits"
-version = "0.0.0"
+version = "0.1.0"
 tag_format = "v$version"
 update_changelog_on_bump = true
 
