@@ -80,6 +80,12 @@ def test_empty_dict_returns_empty():
             "total": 3,
             "expected": {"x": 1, "y": 1, "z": 1},
         },
+        {
+            "name": "distribute to first element",
+            "data": [33.0, 33.0, 33.0],
+            "total": 100,
+            "expected": [34.0, 33.0, 33.0],
+        },
     ],
     ids=lambda scenario: scenario["name"],
 )
